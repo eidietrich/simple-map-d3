@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<!-- Template for Montana County choropleth maps, using Simple Map D3
+http://code.minnpost.com/simple-map-d3/ -->
+<head>
+  <title>Montana as choropleth map</title>
+  <link rel="stylesheet" href="simple-map-d3.css">
+</head>
+<body>
+  <script src="d3.min.js" charset="utf-8"></script>
+  <script src="topojson.js" charset="utf-8"></script>
+  <script src="simple-map-d3.js" charset="utf-8"></script>
+
+  <h3>MONTANA</h3>
+  <p>Montana, shaded by county number (those numbers that show up on license plates):</p>
+  <div id="simple-map-d3" style="background-color: #FFFFFF; width: 100%; height: 360px; border: 1px solid #898989; margin: 0 0 1em 0;"></div>
+
+  <script>
+    var map = SimpleMapD3({
+      container: '#simple-map-d3',
+      datasource: 'mt-counties.topo.json',
+      colorOn: true,
+      colorProperty: 'COUNTYNUMB',
+      legendFormatter: d3.format(',f0'),
+      projection: 'mercator' // a good projection for Montana
+    });
+  </script>
+
+</body>
